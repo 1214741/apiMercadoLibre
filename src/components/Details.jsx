@@ -18,7 +18,16 @@ const Detail = () => {
     }, []);
     
   return (
-    <Grid container sx={{p:10}} spacing={4} direction="row">
+    <>
+    <h1>Descripción del producto</h1>
+    </>
+  );
+};
+
+export default Detail;
+
+/**
+ <Grid container sx={{p:10}} spacing={4} direction="row">
       
       <Paper elevation={3}>
         <img
@@ -32,7 +41,4 @@ const Detail = () => {
         <p>{description.plain_text}</p>
       </Paper>
     </Grid>
-  );
-};
-
-export default Detail;
+ */

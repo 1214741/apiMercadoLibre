@@ -1,9 +1,7 @@
 import { useState } from "react";
 import { getProductsByName } from "../services/ProductService";
-import { Button, TextField } from "@mui/material";
 import Product from "./Product";
-import List from '@mui/material/List';
-import {ListGroup} from 'react-bootstrap';
+import {ListGroup, Button} from 'react-bootstrap';
 
 const ProductList = () => {
     const [data, setData] = useState([]);
@@ -14,7 +12,7 @@ const ProductList = () => {
 
     return (
         <div>
-            <TextField onChange={handleOnChange} />
+            <input type="text" onChange={handleOnChange} value={product}/>
             <Button onClick={handleClick} >Search</Button>
             <ListGroup>
                 <ListGroup.Item>
