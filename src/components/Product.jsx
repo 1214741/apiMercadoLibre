@@ -1,9 +1,12 @@
 import { Card } from 'react-bootstrap'
 import { useParams, Link } from 'react-router-dom'
+import { useState } from 'react';
 
 export default function Product({
   product: { id, title, price, available_quantity, thumbnail },
 }) {
+  const [url, ] = useState('/productDetail/'+id);
+
   return (
     <>
       <Card border="dark" style={{ width: '18rem' }}>
@@ -13,10 +16,14 @@ export default function Product({
         <Card.Body>
           <Card.Subtitle className="mb-2 text-muted">Precio {price}</Card.Subtitle>
           <Card.Text>Disponibles {available_quantity}</Card.Text>
-          <Card.Img className="" src={thumbnail}/>
-          <Card.Link href="/productDetail/MCO572050856">Mas detalles</Card.Link>
+          <Card.Img src={thumbnail}/>
+          <Card.Link href={url}>Mas detalles</Card.Link>
         </Card.Body>
       </Card>
     </>
   );
 }
+
+/*
+/productDetail/{id}
+ */

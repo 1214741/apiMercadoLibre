@@ -1,25 +1,35 @@
-import {getProductByID, getProductDesc } from "../services/ProductService";
-import React, {useState, useEffect} from "react";
-import {useParams} from 'react-router-dom'
-import { Grid, Paper } from "@mui/material";
+import { getProductByID, getProductDesc } from "../services/ProductService";
+import React, { useState, useEffect } from "react";
+import { useParams } from 'react-router-dom'
+import { Card } from 'react-bootstrap'
 
 const Detail = () => {
-    let {id} = useParams()
-    const [data, setData] = useState({});
-    const [description, setDescription] = useState({});
-    useEffect(() => {
-      getProductByID(id).then((response)=>{
-          console.log(response.data);
-          setData(response.data)
-      });
-      getProductDesc(id).then((response)=>{
-          setDescription(response.data)
-      });
-    }, []);
-    
+  let { id } = useParams()
+  const [data, setData] = useState({});
+  const [description, setDescription] = useState({});
+  useEffect(() => {
+    getProductByID(id).then((response) => {
+      console.log(response.data);
+      setData(response.data)
+    });
+    getProductDesc(id).then((response) => {
+      setDescription(response.data)
+    });
+  }, []);
+
   return (
     <>
-    <h1>Descripción del producto</h1>
+      <Card border="dark" style={{ width: '30rem' }}>
+        <Card.Header>
+          <Card.Title>{data.title}</Card.Title>
+          <Card.Subtitle>Id: {id}</Card.Subtitle>
+          <Card.Subtitle>{data.price} COP</Card.Subtitle>
+        </Card.Header>
+        <Card.Body>
+          <Card.Img src={data.thumbnail}/>
+          <Card.Text>{description.plain_text}</Card.Text>
+        </Card.Body>
+      </Card>
     </>
   );
 };
