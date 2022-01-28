@@ -1,7 +1,7 @@
 import { getProductByID, getProductDesc } from "../services/ProductService";
 import React, { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom'
-import { Card } from 'react-bootstrap'
+import { Button, Card } from 'react-bootstrap'
 
 const Detail = () => {
   let { id } = useParams()
@@ -19,16 +19,19 @@ const Detail = () => {
 
   return (
     <>
-      <Card border="dark" style={{ width: '30rem' }}>
+      <Card border="dark" style={{ width: '30rem' }} className="m-auto">
         <Card.Header>
           <Card.Title>{data.title}</Card.Title>
           <Card.Subtitle>Id: {id}</Card.Subtitle>
           <Card.Subtitle>{data.price} COP</Card.Subtitle>
         </Card.Header>
         <Card.Body>
-          <Card.Img src={data.thumbnail}/>
+          <Card.Img src={data.thumbnail} />
           <Card.Text>{description.plain_text}</Card.Text>
         </Card.Body>
+        <Card.Footer>
+          <Button href="/">Regresar</Button>
+        </Card.Footer>
       </Card>
     </>
   );

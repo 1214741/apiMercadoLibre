@@ -9,7 +9,7 @@ export default function Product({
 
   return (
     <>
-      <Card border="dark" style={{ width: '18rem' }}>
+      <Card border="dark" style={{ width: '18rem' }} className="m-auto">
         <Card.Header>
           <Card.Title>{title}</Card.Title>
         </Card.Header>
