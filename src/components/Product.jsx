@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom'
 import { useState } from 'react';
 
 export default function Product({
-  product: { id, title, price, available_quantity, thumbnail },
+  product: { id, title, price, available_quantity, thumbnail, address },
 }) {
   const [url, ] = useState('/productDetail/'+id);
 
@@ -16,6 +16,7 @@ export default function Product({
         <Card.Body>
           <Card.Subtitle className="mb-2 text-muted">Precio {price}</Card.Subtitle>
           <Card.Text>Disponibles {available_quantity}</Card.Text>
+          <Card.Text>Ciudad {address.city_name}</Card.Text>
           <Card.Img src={thumbnail}/>
           <Card.Link href={url}>Mas detalles</Card.Link>
         </Card.Body>

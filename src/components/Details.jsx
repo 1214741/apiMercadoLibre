@@ -8,13 +8,8 @@ const Detail = () => {
   const [data, setData] = useState({});
   const [description, setDescription] = useState({});
   useEffect(() => {
-    getProductByID(id).then((response) => {
-      console.log(response.data);
-      setData(response.data)
-    });
-    getProductDesc(id).then((response) => {
-      setDescription(response.data)
-    });
+    getProductByID(id).then((response) => setData(response.data));
+    getProductDesc(id).then((response) => setDescription(response.data));
   }, []);
 
   return (
